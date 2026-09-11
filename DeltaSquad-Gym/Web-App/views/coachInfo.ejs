@@ -1,0 +1,107 @@
+<!-- Minimal HTML with metadata inside head -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!-- Output to add the ship name to the webpage title -->
+        <title>DeltaSquad Gym Coach Info</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+
+    <!-- Body with visible content of webpage -->
+    <body>
+        <!-- DeltaSquad Gym Banner -->
+        <img class="banner" src="/images/Banner.jpeg" alt="Banner">
+        <!-- Header with titles as per wireframe and snapshots provided -->
+        <header>
+            <!-- Output tag to specify coach name -->
+            <div class="header">
+                <a href="/gym">&#65308;back</a>
+                <div></div>
+                <h1>Coach <%=coach.First_Name%></h1>
+                <a href="/gym/logout">logout</a>
+                <a href="/account">account</a>
+            </div>
+            
+        </header>
+
+        <!-- Main of webpage with content & structure as per wireframe and 
+        snapshots provided -->
+        <main>
+            <!-- Output tag to specify visit info -->
+                <!-- TODO: Review adding link to image -->
+                <div class="coach-list">
+                    <img class="large" src="/images/<%=coach.First_Name%>.jpeg" alt="Headshot of <%=coach.First_Name%>">
+                    <div class="enlarge">
+                        <p>Name: <a href="/gym/coaches/<%=coach.Coach_ID%>"><%=coach.First_Name%></a></p>
+                        <p>Level: <%=coach.Level%></p>
+                        <a href="/gym/reviews/<%=coach.Coach_ID%>">Reviews</a>
+                    </div>
+                    
+                    <div class="rating enlarge">
+                        <p>Rating</p>
+                        <% if (coach.Rating !== null) { %>
+                            <p><%=coach.Rating%></p>
+                        <% } %> 
+                    </div>
+                </div>
+            <h2>Locations I work from</h2>
+            <!-- Scriplet to display each location for displayed coach -->
+            <div class="location-coaches">
+                <% locations.forEach(location => { %>
+                    <!-- Output tag to display exterior image -->
+                    <div>
+                        <a href="/gym/locations/<%=location.Name%>">
+                            <img class="medium" src="/images/<%=location.Name%>.jpeg" alt="Exterior of <%=location.Name%>">
+                        </a>
+                        <!-- Output tags to display gym info -->
+                        <p><%=location.Name%></p>
+                    </div>
+                <% }) %>
+            </div>
+            
+            <!-- Output tag to display coach philosophy -->
+            <div class="box-notes">
+                <p>My training philosophy:<br><%=coach.Philosophy%></p>
+            </div>
+
+            <h2>Certificates</h2>
+            <!-- Scriplet to display each certificate -->
+            <div class="certs">
+                <% certificates.forEach(certificate => { %>
+                    <p><%=certificate.Certificate_Name%></p>
+                <% }) %>
+            </div>
+            
+            <!-- Table for coach references -->
+            <div class="table-container">
+                <table>
+                    <caption>References</caption>
+                    <tbody>
+                        <tr>
+                            <th scope="col">Client Name
+                            <th scope="col">Phone:
+                            <th scope="col">Email:
+                        </tr>
+                        <!-- Scriplet to list each reference -->
+                        <% references.forEach(reference => { %>
+                            <tr>
+                                <td><%=reference.First_Name%> <%=reference.Last_Name%></td>
+                                <td><a href="tel:<%=reference.Phone%>"><%=reference.Phone%></a></td>
+                                <td><a href="mailto:<%=reference.Email%>"><%=reference.Email%></a></td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+            
+        </main>
+
+        <!-- Applicable footer with link to ??? -->
+        <footer>
+            <a href="/gym">Return to Home Page</a>
+            <address>&copy; 2026 Michael Checca</address>
+        </footer>
+    </body>
+</html>

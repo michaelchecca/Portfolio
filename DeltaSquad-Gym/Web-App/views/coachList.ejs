@@ -1,0 +1,82 @@
+<!-- Minimal HTML with metadata inside head -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!-- Output to add the ship name to the webpage title -->
+        <title>DeltaSquad Gym Coaches</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+
+    <!-- Body with visible content of webpage -->
+    <body>
+        <!-- DeltaSquad Gym Banner -->
+        <img class="banner" src="/images/Banner.jpeg" alt="Banner">
+        <!-- Header with titles as per wireframe and snapshots provided -->
+        <header>
+            <div class="header">
+                <a href="/gym">&#65308;back</a>
+                <div></div>
+                <h1>Coaches:</h1>
+                <a href="/gym/logout">logout</a>
+                <a href="/account">account</a>
+            </div>
+            
+        </header>
+
+        <!-- Main of webpage with content & structure as per wireframe and 
+        snapshots provided -->
+        <main>
+            <h2>My Coaches</h2>
+            <!-- Scriplet to create render my coaches list -->
+            <div class="coach-list">
+                <% myCoach.forEach(coach => { %>
+                    <!-- Output tag to specify visit info -->
+                    <!-- TODO: Review adding link to image -->
+                    <img class="medium" src="/images/<%=coach.First_Name%>.jpeg" alt="Headshot of <%=coach.First_Name%>">
+                    <div class="enlarge">
+                        <p>Name: <a href="/gym/coaches/<%=coach.Coach_ID%>"><%=coach.First_Name%></a></p>
+                        <p>Level: <%=coach.Level%></p>
+                        <a href="/gym/reviews/<%=coach.Coach_ID%>">Reviews</a>
+                    </div>
+                    
+                    <div class="rating enlarge">
+                        <p>Rating</p>
+                        <% if (coach.Rating !== null) { %>
+                            <p><%=coach.Rating%></p>
+                        <% } %> 
+                    </div>
+                <% }) %>
+            </div>
+
+            <h2>All Coaches</h2>
+            <!-- Scriplet to create render complete coaches list -->
+            <% coachList.forEach(coach => { %>
+                <div class="coach-list">  
+                    <!-- Output tag to specify visit info -->
+                    <!-- TODO: Review adding link to image -->
+                    <img class="medium" src="/images/<%=coach.First_Name%>.jpeg" alt="Headshot of <%=coach.First_Name%>">
+                    <div class="enlarge">
+                        <p>Name: <a href="/gym/coaches/<%=coach.Coach_ID%>"><%=coach.First_Name%></a></p>
+                        <p>Level: <%=coach.Level%></p>
+                        <a href="/gym/reviews/<%=coach.Coach_ID%>">Reviews</a>
+                    </div>
+                    <div class="rating enlarge">
+                        <p>Rating</p>
+                        <% if (coach.Rating !== null) { %>
+                            <p><%=coach.Rating%></p>
+                        <% } %> 
+                    </div>
+                </div>
+            <% }) %>
+            
+        </main>
+
+        <!-- Applicable footer with link to ??? -->
+        <footer>
+            <a href="/gym">Return to Home Page</a>
+            <address>&copy; 2026 Michael Checca</address>
+        </footer>
+    </body>
+</html>

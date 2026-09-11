@@ -1,0 +1,430 @@
+/* DeltaSquad Gym Brand Stylesheet */
+:root {
+    --accent1: #7dd3fc;
+    --accent2: #d3f0ff;
+    --background: #0f172a;
+    --background2: rgb(251, 255, 254);
+    --hover1: #dad6ff;
+    --shadow1: #cecbe6;
+    /* --shadow2: #dfddee; */
+    /* --shadow3: #7c77a8; */
+    --text: black;
+    --alttext: white;
+}
+
+/* main page structure */
+
+body {
+    align-items: center;
+    background: url("/images/Downtown Gym.jpeg") bottom / 1200px no-repeat fixed;
+    background-color: var(--background);
+    color: var(--text);
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    height: 100%;
+    justify-items: center;
+    font-family: Helvetica, Arial, Georgia;
+    justify-content: center;
+    line-height: 1.6;
+    margin: 0;
+    min-height: 100vh;
+}
+
+body.middle {
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    height: 100%;
+    justify-items: center;
+}
+
+body.middle img,
+body.middle header {
+    align-self: start;
+}
+
+main {
+    background-color: var(--accent2);
+    border-radius: 16px;
+    box-shadow: 0 10px 25px var(--shadow1);
+    margin: 2rem 0px;
+    /* max-width: 340px; */
+    padding: 3rem;
+}
+
+.banner {
+    align-self: start;
+    display: block;
+    aspect-ratio: 16 / 4;
+    width: 100%;
+    max-width: 1200px;
+    object-fit: cover;
+}
+
+header {
+    align-self: start;
+    background-color: var(--accent1);
+    box-shadow: 0 10px 25px var(--shadow1);
+    color: var(--alttext);
+    width: 100vw;
+    max-width: 1200px;
+}
+
+header a,
+header h1, 
+header form {
+    text-decoration: none;
+    padding: .5rem 0.5rem;
+}
+
+header a:first-of-type {
+    padding: .5rem 0.5rem 0.5rem 0rem;
+}
+
+header a:hover {
+    background-color: var(--hover1);
+    color: var(--hover-text);
+}
+
+.header {
+    display: grid;
+    font-size: 1.5rem;
+    grid-template-columns: auto auto 1fr auto auto;
+    padding: 0rem 1rem 0rem .5rem;
+}
+
+.header > :nth-child(1) {
+    justify-self: start;
+}
+
+.header > :nth-child(2) {
+    padding: 0rem 3.5rem;
+}
+
+.header > :nth-child(3) {
+    justify-self: center;
+}
+
+.header > :nth-child(4),
+.header > :nth-child(5) {
+    justify-self: end;
+}
+
+header form {
+  display: inline;
+}
+
+header form button {
+    background: none;
+    border: none;
+    color: #0000ee;
+    cursor: pointer;
+    font: inherit;
+    padding: 0;
+}
+
+header form:hover {
+    background-color: var(--hover1);
+    color: var(--hover-text);
+}
+
+.list-header {
+    align-items: end;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid {
+    border-bottom: var(--background2) solid 0.2rem;
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: auto 1fr auto;
+}
+
+.grid > :nth-child(2) {
+    align-self: center;
+    justify-self: start;
+}
+
+.visit-count {
+    align-self: center;
+    color: orange;
+    display: inline;
+    font-weight: bold;
+    font-size: 1.5rem;
+    justify-self: end;
+}
+
+.count-title {
+    color: blue;
+    display: inline;
+    font-weight: bold;
+    justify-self: end;
+}
+
+.location-info {
+    align-items: start;
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(2, auto);
+}
+
+.amenities-list,
+.certs,
+.location-coaches {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--background2);
+    border-radius: 8px;
+    /* display: grid; */
+    gap: 1rem;
+    /* grid-template-columns: repeat(auto-fit, minmax(3.5rem, 12rem)); */
+    justify-content: center;
+    justify-items: center;
+    padding: 0.5rem;
+    /* column-wrap: nowrap; */
+}
+
+.amenities-list > div,
+.location-coaches > div {
+    max-width: 5rem;
+    text-align: center;
+    word-wrap: normal;
+}
+
+.certs > p {
+    max-width: 10rem;
+    text-align: center;
+    word-wrap: normal;
+}
+
+.inline {
+    display: inline;
+}
+
+.coach-list {
+    border-bottom: var(--background2) solid 0.2rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1.5fr 0.5fr;
+    /* justify-content: center;
+    justify-items: center; */
+}
+
+.rating {
+    text-align: center;
+}
+
+.rating p:last-of-type {
+    color: #00c400;
+    font-size: 1.5rem;
+}
+
+.coach-list p {
+    margin: 0rem;
+}
+
+.coach-list p:last-of-type {
+    margin-bottom: .5rem;
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin: 0rem;
+}
+
+h2 {
+    font-size: 1.25rem;
+    margin: 0rem;
+}
+
+p {
+    font-size: 1rem;
+    margin: 0rem;
+}
+
+.location-info > div > p {
+    margin: 0.5rem;
+}
+
+.coach-list div.rating p:last-of-type {
+    font-size: 2rem;
+}
+
+.box-notes {
+    border: 0.1rem black solid;
+    margin: 0.5rem 0rem;
+}
+
+.box-notes p {
+    font-size: 0.9rem;
+    margin: 0.2rem;
+}
+
+.score-container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+
+.score-container > p{
+    margin: 0rem .25rem;
+}
+
+p.score,
+.circle,
+.circles {
+    display: inline-block;
+}
+
+.circle {
+    aspect-ratio: 1;
+    border: .2rem solid darkgreen;
+    border-radius: 50%;
+    width: 1vw;
+}
+
+.full {
+  background: lightgreen;
+}
+
+img.small {
+    max-width: 7rem;
+    max-height: 7rem;
+    width: 100%;
+    height: auto;
+}
+
+img.medium {
+    max-width: 5rem;
+    max-height: 5rem;
+    width: 100%;
+    height: auto;
+}
+
+img.large {
+    max-width: 8rem;
+    max-height: 8rem;
+    width: 100%;
+    height: auto;
+}
+
+/* table styling */
+/* container for table to auto horiz scroll on mobile screens */
+.table-container {  
+    max-width: 100%;
+    overflow-x: auto;
+    border-radius: 12px;
+}
+
+.table-container > table > tbody {
+    background-color: var(--background2);
+}
+
+table {
+    border-collapse: collapse;
+    table-layout: auto;
+    width: 100%;
+}
+
+td,
+th {
+    border: .05em dotted var(--accent1);
+    color: var(--text);
+    /* font-size: .75rem;
+    min-width: .75rem; */
+    min-width: 125px;
+    padding: .35em;
+    width: 20%;
+}
+
+caption {
+    color: var(--text);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
+footer,
+footer a {
+    margin: .0rem;
+    padding: .0rem;
+    color: var(--text);
+}
+
+/* tablet screens */
+@media only screen and (min-width: 768px) {
+    main {
+        max-width: 760px;
+    }
+
+    html,
+    body.middle {
+        display: grid;
+        grid-template-rows: auto auto 1fr auto;
+        height: 100%;
+        justify-items: center;
+    }
+
+    body.middle img,
+    body.middle header {
+        align-self: start;
+    }
+
+    main.middle {
+        align-content: center;
+    }
+
+    body.middle footer {
+        align-self: end;
+    }
+
+    .amenities-list > div,
+    .location-coaches > div {
+        max-width: 10rem;
+        text-align: center;
+        word-wrap: normal;
+    }
+
+    .location-info > div.enlarge > p,
+    .coach-list div.enlarge p,
+    .coach-list div.enlarge a {
+        font-size: 1.35rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .coach-list > div.enlarge > p:last-of-type {
+        margin-bottom: 1.25rem;
+    }
+
+    .coach-list div.rating p:last-of-type {
+        font-size: 3rem;
+    }
+
+    img.medium {
+        max-width: 10rem;
+        max-height: 10rem;
+        width: 100%;
+        height: auto;
+    }
+
+    img.large {
+        max-width: 15rem;
+        max-height: 15rem;
+        width: 100%;
+        height: auto;
+    }
+
+    /* td,
+    th {
+        min-width: 130px;
+        font-size: 1rem;
+    } */
+    
+}
+
+/* wide screens */
+/* @media only screen and (min-width: 1098px) {
+    main {
+        max-width: 1085px;
+    }
+  
+} */

@@ -1,0 +1,63 @@
+<!-- Minimal HTML with metadata inside head -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!-- Output to add the ship name to the webpage title -->
+        <title>DeltaSquad Gym Coach Reviews</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+
+    <!-- Body with visible content of webpage -->
+    <body>
+        <!-- DeltaSquad Gym Banner -->
+        <img class="banner" src="/images/Banner.jpeg" alt="Banner">
+        <!-- Header with titles as per wireframe and snapshots provided -->
+        <header>
+            <!-- Output tag to specify ??? -->
+            <div class="header">
+                <a href="/gym">&#65308;back</a>
+                <div></div>
+                <h1>Coach <%=coach.First_Name%> Reviews</h1>
+                <a href="/gym/logout">logout</a>
+                <a href="/account">account</a>
+            </div>
+            
+        </header>
+
+        <!-- Main of webpage with content & structure as per wireframe and 
+        snapshots provided -->
+        <main>
+            <!-- Scriplet to create render my coaches list -->
+            <% let scores = ["Communication", "Enthusiasm", "Punctuality"];
+            reviews.forEach(review => {
+                scores.forEach(rating => { %>
+                    <div class="score-container">
+                        <p class="score"><%=rating%>: <%=review[rating]%></p>
+                        <div class="circles">
+                            <% for (let i = 1; i <= review[rating]; i++) { %>
+                                <div class="circle full"></div>
+                            <% } %>
+                            <% for (let i = 1; i <= 5 - review[rating]; i++) { %>
+                                <div class="circle"></div>
+                            <% } %>
+                        </div>
+                    </div>
+                    <% }) %>
+                    <div class="box-notes">
+                        <p><%=review.Notes%></p>
+                    </div>
+            <% }) %>
+                <!-- Output tag to specify visit info -->
+                <!-- TODO: Review adding link to image -->
+            
+        </main>
+
+        <!-- Applicable footer with link to ??? -->
+        <footer>
+            <a href="/gym">Return to Home Page</a>
+            <address>&copy; 2026 Michael Checca</address>
+        </footer>
+    </body>
+</html>

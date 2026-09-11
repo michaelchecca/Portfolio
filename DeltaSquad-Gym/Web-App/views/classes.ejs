@@ -1,0 +1,83 @@
+<!-- Minimal HTML with metadata inside head -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!-- Output to add the ship name to the webpage title -->
+        <title>DeltaSquad Gym Classes</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+
+    <!-- Body with visible content of webpage -->
+    <body>
+        <!-- Header with titles as per wireframe and snapshots provided -->
+        <header>
+            <!-- Output tag to specify ??? -->
+            <div class="inline"><a href="/gym">back</a></div>
+            <h1>Classes</h1>
+            
+        </header>
+
+        <!-- Main of webpage with content & structure as per wireframe and 
+        snapshots provided -->
+        <main>
+            <!-- Output tag to specify visit info -->
+                <!-- TODO: Review adding link to image -->
+                <div class="inline"><img src="" alt="Headshot of <%=coach.First_Name%>"></div>
+                <p>Name: <a href="/gym/coaches/<%=coach.Coach_ID%>"><%=coach.First_Name%></a></p>
+                <p>Level: <%=coach.Level%></p>
+                <a href="/gym/reviews/<%=coach.Coach_ID%>">Reviews</a>
+                <div class="rating">
+                    <p>Rating</p>
+                    <% if (coach.Rating !== null) { %>
+                        <p><%=coach.Rating%></p>
+                    <% } %> 
+                </div>
+            <h2>Locations I work from</h2>
+            <!-- Scriplet to display each location for displayed coach -->
+            <% locations.forEach(location => { %>
+                <!-- Output tag to display exterior image -->
+                <div class="inline"><img src="" alt="Exterior of <%=location.Name%>"></div>
+                <!-- Output tags to display gym info -->
+                <a href="/gym/locations/<%=location.Name%>"><%=location.Name%></a>
+            <% }) %>
+            
+            <!-- Output tag to display coach philosophy -->
+            <p><%=coach.Philosophy%></p>
+
+            <h2 class="certs">Certificates</h2>
+            <!-- Scriplet to display each certificate -->
+            <% certificates.forEach(certificate => { %>
+                <p><%=certificate.Certificate_Name%></p>
+            <% }) %>
+            
+            <!-- Table for coach references -->
+            <div class="table-container">
+                <table>
+                    <caption>References</caption>
+                    <tr>
+                        <th scope="col">Client Name
+                        <th scope="col">Phone:
+                        <th scope="col">Email:
+                    </tr>
+                    <!-- Scriplet to list each reference -->
+                    <% references.forEach(reference => { %>
+                        <tr>
+                            <td>Client Name: <%=reference.First_Name%> <%=reference.Last_Name%></td>
+                            <td>Phone: <a href="tel:<%=reference.Phone%>"><%=reference.Phone%></a></td>
+                            <td>Email: <a href="mailto:<%=reference.Email%>"><%=reference.Email%></a></td>
+                        </tr>
+                    <% }) %>
+                </table>
+            </div>
+            
+        </main>
+
+        <!-- Applicable footer with link to ??? -->
+        <footer>
+            <a href="/gym">Return to Home Page</a>
+            <address>&copy; 2026 Michael Checca</address>
+        </footer>
+    </body>
+</html>

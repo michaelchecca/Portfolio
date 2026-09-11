@@ -1,0 +1,83 @@
+<!-- Minimal HTML with metadata inside head -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!-- Output to add the ship name to the webpage title -->
+        <title>DeltaSquad Gym Locations</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+
+    <!-- Body with visible content of webpage -->
+    <body>
+        <!-- DeltaSquad Gym Banner -->
+        <img class="banner" src="/images/Banner.jpeg" alt="Banner">
+        <!-- Header with titles as per wireframe and snapshots provided -->
+        <header>
+            <div class="header">
+                <a href="/gym">&#65308;back</a>
+                <div></div>
+                <h1 class="inline">Locations:</h1>
+                <a href="/gym/logout">logout</a>
+                <a href="/account">account</a>
+            </div>
+            
+        </header>
+
+        <!-- Main of webpage with content & structure as per wireframe and 
+        snapshots provided -->
+        <main>
+            <div class="list-header">
+                <h2>Home Location</h2>
+                <div class="count-title"># of Times visited this month</div>
+            </div>
+
+            <!-- Output tag to specify visit info -->
+            <div class="grid">
+                <img class="small" src="/images/<%=visited[0].Name%>.jpeg" alt="Exterior of <%=visited[0].Name%>">
+                <a href="/gym/locations/<%=visited[0].Name%>"><%=visited[0].Name%></a>
+                <!-- Output tag to display number of visits -->
+                <div class="visit-count">
+                    <% if (visited[0]['# of Visits'] !== null) { %>
+                        <%=visited[0]['# of Visits']%>
+                    <% } %>                        
+                </div>
+            </div>
+            <h2>Other Visited Locations</h2>
+            <% for (let i = 1; i < visited.length; i++) { %>
+                <div class="grid">
+                    <img class="small" src="/images/<%=visited[i].Name%>.jpeg" alt="Exterior of <%=visited[i].Name%>">
+                    <a href="/gym/locations/<%=visited[i].Name%>"><%=visited[i].Name%></a>
+                    <!-- Output tag to display number of visits -->
+                    <div class="visit-count">
+                        <% if (visited[i]['# of Visits'] !== null) { %>
+                            <%=visited[i]['# of Visits']%>
+                        <% } %>                        
+                    </div>
+                </div>
+            <% } %>
+            
+            <!-- Scriplet to create render complete locations list -->
+            <% locations.forEach(location => { %>
+                <div class="grid">
+                    <img class="small" src="/images/<%=location.Name%>.jpeg" alt="Exterior of <%=location.Name%>">
+                    <a href="/gym/locations/<%=location.Name%>"><%=location.Name%></a>
+                    <!-- Output tag to display number of visits -->
+                    <div class="visit-count">
+                        <% if (location['# of Visits'] !== null) { %>
+                            <%=location['# of Visits']%>
+                        <% } %>
+                    </div>
+                </div>
+            <% }) %> 
+            
+        </main>
+
+        <!-- Applicable footer with link to ??? -->
+        <footer>
+            <a href="/gym">Return to Home Page</a>
+            <address>&copy; 2026 Michael Checca</address>
+        </footer>
+    </body>
+</html>

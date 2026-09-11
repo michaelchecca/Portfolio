@@ -1,0 +1,85 @@
+<!-- Minimal HTML with metadata inside head -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!-- Output to add the ship name to the webpage title -->
+        <title>DeltaSquad Gym Coach Reviews</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+
+    <!-- Body with visible content of webpage -->
+    <body class="middle">
+        <!-- DeltaSquad Gym Banner -->
+        <img class="banner" src="/images/Banner.jpeg" alt="Banner">
+        <!-- Header with titles as per wireframe and snapshots provided -->
+        <header>
+            <!-- Output tag to specify ??? -->
+            <div class="header">
+                <a href="/gym">&#65308;Back</a>
+                <div></div>
+                <h1>Login</h1>
+                <!-- <a href="/gym/logout">logout</a> -->
+                <a href="/account">Account</a>
+                <form action="/gym/logout" method="post">
+                    <div>
+                        <button type="submit">Log Out</button>
+                    </div>
+                </form>
+            </div>
+            
+        </header>
+            
+        <main class="middle">
+            <div>
+                <!-- locals.session is where data is stored -->
+                <% if (locals.session && session.username) { %>
+                    <h2>Welcome, <%= session.username %>!</h2>
+                <% } else { %>
+                    <h2>Welcome to DeltaSquad Gym!</h2>
+                <% } %>
+                <!-- Check if incorrect credentials supplied -->
+                <% if (credentialCheck == false) { %>
+                    <p>Error: Invalid username or password, try again.</p>
+                <% } %>
+                <!-- Check local object for session & username properties 
+                before building signin form  -->
+                <% if (!locals.session || !session.username) { %>
+                    <!-- Action url matches login route handler, post method 
+                    used for sensitive data-->
+                    <form action="/gym/getuser" method="post">
+                        <div>
+                            <label for="name">Username:
+                                <input type="text" id="name" name="username" required>
+                            </label>
+                        </div>
+                        <div>
+                            <label for="pwd">Password:
+                                <input type="text" id="pwd" name="password" required>
+                            </label>
+                        </div>
+                        <div>
+                            <!-- Submit type input used to submit data to server -->
+                            <input type="submit" value="Submit">
+                        </div>
+                    </form>
+                <% } else { %>
+                    <!-- Action url matches logout route handler -->
+                    <form action="/gym/logout" method="post">
+                        <div>
+                            <button type="submit">Log Out</button>
+                        </div>
+                    </form>
+                    <% } %>
+                        
+                <p><a href="/gym/locations">Locations</a></p>
+            </div>
+            
+        </main>
+            
+        <footer>
+            <address>&copy; 2026 Michael Checca</address>
+        </footer>
+    </body>
+</html>

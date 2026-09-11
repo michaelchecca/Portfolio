@@ -1,0 +1,76 @@
+<!-- Minimal HTML with metadata inside head -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!-- Output to add the ship name to the webpage title -->
+        <title>DeltaSquad Gym Location Info</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+
+    <!-- Body with visible content of webpage -->
+    <body>
+        <!-- DeltaSquad Gym Banner -->
+        <img class="banner" src="/images/Banner.jpeg" alt="Banner">
+        <!-- Header with titles as per wireframe and snapshots provided -->
+        <header>
+            <!-- Output tag to specify gym location -->
+            <div class="header">
+                <a href="/gym">&#65308;back</a>
+                <div></div>
+                <h1><%=gymInfo.Name%> Location</h1>
+                <a href="/gym/logout">logout</a>
+                <a href="/account">account</a>
+            </div>
+            
+        </header>
+
+        <!-- Main of webpage with content & structure as per wireframe and 
+        snapshots provided -->
+        <main>
+            <!-- Output tag to display exterior image -->
+            <div class="location-info">
+                <img class="large" src="/images/<%=gymInfo.Name%>.jpeg" alt="Exterior of <%=gymInfo.Name%>">
+                <!-- Output tags to display gym info -->
+                <div class="enlarge">
+                    <p>Address: <%=gymInfo.Street_Address%></p>
+                    <p>Tel: <a href="tel:<%=gymInfo.Phone%>"><%=gymInfo.Phone%></a></p>
+                    <p>Email: <a href="mailto:<%=gymInfo.Email%>"><%=gymInfo.Email%></a></p>
+                </div>
+            </div>
+            
+            
+            <h2>Amenities</h2>
+            <!-- Scriplet to display each amenity -->
+            <div class="amenities-list">
+                <% amenityInfo.forEach(location => { %>
+                    <div class="inline">
+                        <img class="medium" src="/images/<%=location.Amenity%>.jpeg" alt="Picture of <%=location.Amenity%>">
+                        <p><%=location.Amenity%></p>
+                    </div>
+                <% }) %>
+            </div>
+            
+            <h2>Coaches</h2>
+            <!-- Scriplet to list coaches at location -->
+            <div class="location-coaches">
+                <% coachInfo.forEach(coach => { %>
+                    <div class="inline">
+                        <a href="/gym/coaches/<%=coach.Coach_ID%>">
+                            <img class="medium" src="/images/<%=coach.First_Name%>.jpeg" alt="Picture of <%=coach.First_Name%>">
+                        </a>
+                        <p><%=coach.First_Name%></p>
+                    </div>
+                <% }) %> 
+            </div>
+            
+        </main>
+
+        <!-- Applicable footer with link to ??? -->
+        <footer>
+            <a href="/gym">Return to Home Page</a>
+            <address>&copy; 2026 Michael Checca</address>
+        </footer>
+    </body>
+</html>
