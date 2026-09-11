@@ -55,6 +55,17 @@ In addition to the design and development of the database, the group worked to d
     -Protocol TCP `
     -LocalPort 1433 `
     -Action Allow``
+- Populate database, open IDE:
+  - Load sql file
+  - Connnect to database (Ctl+Shift+C) & choose create connection
+  - Enter profile name DeltaSquadDB
+  - Enter name of server from SSMS
+  - Click trust server certificate
+  - Choose Windows Authentication
+  - Enter database name
+  - Choose encrypt mandatory
+  - Click connect
+- Execute code from SQL file
 - Open command prompt:
   - Change to web app project directory and run npm install express ejs express-session -s
   - Run nodemon app
