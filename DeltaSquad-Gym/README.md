@@ -25,7 +25,8 @@ In addition to the design and development of the database, the group worked to d
 ## Tools Used
 - Microsoft SQL server for database server (testing web app locally)
 - VS Code Integrated Development Environment (IDE)
-- 
+- Firefox (testing web-app)
+- AWS RDS (Cloud deployment of database)
 
 ## To-Do:
 - Create password table & update session code to compare POST with hash
