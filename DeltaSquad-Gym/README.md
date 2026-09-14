@@ -68,6 +68,6 @@ In addition to the design and development of the database, the group worked to d
   - Click connect
 - Execute code from SQL file
 - Open command prompt:
-  - Change to web app project directory and run npm install express ejs express-session -s
+  - Change to web app project directory and run npm install express ejs express-session mssql -s
   - Run nodemon app
 - Open web app in web browser at http:\//localhost:3000/gym
